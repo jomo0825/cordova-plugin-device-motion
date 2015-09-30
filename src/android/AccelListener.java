@@ -243,8 +243,9 @@ public class AccelListener extends CordovaPlugin implements SensorEventListener 
             return;
         }
         this.setStatus(AccelListener.RUNNING);
-
-        if (this.accuracy >= SensorManager.SENSOR_STATUS_ACCURACY_MEDIUM) {
+        
+        //Some mobile phone can never reach the accuracy.
+        //if (this.accuracy >= SensorManager.SENSOR_STATUS_ACCURACY_MEDIUM) {
 
             // Save time that event was received
             this.timestamp = System.currentTimeMillis();
@@ -253,7 +254,7 @@ public class AccelListener extends CordovaPlugin implements SensorEventListener 
             this.z = event.values[2];
 
             this.win();
-        }
+        //}
     }
 
     /**
